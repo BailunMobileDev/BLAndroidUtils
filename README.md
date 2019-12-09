@@ -2,8 +2,29 @@
 
 致力于提高开发效率，提升稳定性，减少Android适配问题。
 
-### Utils
----
+### How to
+
+**Step 1.** Add the JitPack repository to your build file
+
+Add it in your root build.gradle at the end of repositories:
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+	
+**Step 2.** Add the dependency
+```
+dependencies {
+	  implementation 'com.github.BailunMobileDev:BLAndroidUtils:v0.0.1'
+}
+```
+
+### Utils简介
+
 
  [![](https://jitpack.io/v/BailunMobileDev/BLAndroidUtils.svg)](https://jitpack.io/#BailunMobileDev/BLAndroidUtils)
 
