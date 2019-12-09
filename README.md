@@ -2,8 +2,10 @@
 
 致力于提高开发效率，提升稳定性，减少Android适配问题。
 
-### Utils 
+### Utils
 ---
+
+ [![](https://jitpack.io/v/BailunMobileDev/BLAndroidUtils.svg)](https://jitpack.io/#BailunMobileDev/BLAndroidUtils)
 
 |No|工具类名称|简介|
 |---|---|---|
