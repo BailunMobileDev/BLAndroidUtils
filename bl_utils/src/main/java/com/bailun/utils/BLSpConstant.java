@@ -11,7 +11,7 @@ class BLSpConstant {
     /**
      * 默认的preferences file name
      */
-    static final String DEFAULT_SP_NAME = "SP_TU_LONG";
+    static final String DEFAULT_SP_NAME = "SP_BL";
     /**
      * 默认的String Value
      */
