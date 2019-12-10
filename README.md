@@ -31,3 +31,5 @@ dependencies {
 |No|工具类名称|简介|
 |---|---|---|
 |1|BLCollectionUtils|封装集合相关操作|
+|2|BLPermissionUtils|权限判断库|
+|3|BLSpUtils|SharedPreferences库|
