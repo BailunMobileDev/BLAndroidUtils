@@ -33,3 +33,4 @@ dependencies {
 |1|BLCollectionUtils|封装集合相关操作|
 |2|BLPermissionUtils|权限判断库|
 |3|BLSpUtils|SharedPreferences库|
+|4|BLJsonUtils|解析json的工具类|
