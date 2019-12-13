@@ -25,56 +25,43 @@ public class BLSpUtils {
         return SingletonHolder.INSTANCE;
     }
 
-    /**
-     * Must Application Context
-     */
-    private Context context;
     private String defaultSpFileName;
     private DefaultValueBuilder defaultValueBuilder;
 
     /**
      * 初始化TuLong SharedPreferences
-     *
-     * @param context Application
      */
-    public void init(Context context) {
-        init(context, BLSpConstant.DEFAULT_SP_NAME);
+    public void init() {
+        init(BLSpConstant.DEFAULT_SP_NAME);
     }
 
     /**
      * 初始化TuLong SharedPreferences
      *
-     * @param context           Application
      * @param defaultSpFileName 默认的文件名称
      */
-    public void init(Context context, String defaultSpFileName) {
-        init(context, defaultSpFileName, new DefaultValueBuilder().build());
+    public void init(String defaultSpFileName) {
+        init(defaultSpFileName, new DefaultValueBuilder().build());
     }
 
     /**
      * 初始化TuLong SharedPreferences
      *
-     * @param context             Application
      * @param defaultValueBuilder 配置项目的默认值
      */
-    public void init(Context context, DefaultValueBuilder defaultValueBuilder) {
-        init(context, BLSpConstant.DEFAULT_SP_NAME, defaultValueBuilder);
+    public void init(DefaultValueBuilder defaultValueBuilder) {
+        init(BLSpConstant.DEFAULT_SP_NAME, defaultValueBuilder);
     }
 
 
     /**
      * 初始化TuLong SharedPreferences
      *
-     * @param context                Application
      * @param defaultSpFileName      默认的文件名称
      * @param newDefaultValueBuilder 配置项目的默认值
      */
-    public void init(Context context, String defaultSpFileName, DefaultValueBuilder newDefaultValueBuilder) {
-        if (context == null) {
-            throw new NullPointerException("Context can not be empty");
-        }
+    public void init(String defaultSpFileName, DefaultValueBuilder newDefaultValueBuilder) {
         this.defaultSpFileName = defaultSpFileName;
-        this.context = context.getApplicationContext();
         this.defaultValueBuilder = newDefaultValueBuilder;
         if (this.defaultValueBuilder == null) {
             this.defaultValueBuilder = new DefaultValueBuilder().build();
@@ -88,10 +75,7 @@ public class BLSpUtils {
      */
     @WorkerThread
     public SharedPreferences initSharedPreferences() {
-        if (context == null) {
-            throw new RuntimeException("You must first init context");
-        }
-        return getBestSharePreferences(context, defaultSpFileName);
+        return getBestSharePreferences(BLAndroidUtils.app(), defaultSpFileName);
     }
 
 
@@ -102,11 +86,8 @@ public class BLSpUtils {
      * @return {@link SharedPreferences}
      */
     private SharedPreferences getSharePreferences(String name) {
-        if (context == null) {
-            throw new RuntimeException("You must init BLSpUtils");
-        }
         //其他模式官方不推荐使用了，这里默认Context.MODE_PRIVATE
-        return context.getSharedPreferences(name, Context.MODE_PRIVATE);
+        return BLAndroidUtils.app().getSharedPreferences(name, Context.MODE_PRIVATE);
     }
 
     /**
@@ -170,7 +151,7 @@ public class BLSpUtils {
      * @param value      The new value for the preference.
      */
     public void putString(String spFileName, String key, String value) {
-        getEditor(context, spFileName).putString(key, value).apply();
+        getEditor(BLAndroidUtils.app(), spFileName).putString(key, value).apply();
     }
 
     /**
@@ -541,7 +522,7 @@ public class BLSpUtils {
      * @param key        The name of the preference to modify.
      */
     public void removeKey(String spFileName, String key) {
-        getEditor(context, spFileName).remove(key).apply();
+        getEditor(BLAndroidUtils.app(), spFileName).remove(key).apply();
     }
 
     /**
@@ -568,14 +549,14 @@ public class BLSpUtils {
      * @param spFileName Desired preferences file.
      */
     public void clearSpFile(String spFileName) {
-        getEditor(context, spFileName).clear().apply();
+        getEditor(BLAndroidUtils.app(), spFileName).clear().apply();
     }
 
     /**
      * 清空整个Sp文件
      */
     public void clearSpFile() {
-        getEditor(context, defaultSpFileName).clear().apply();
+        getEditor(BLAndroidUtils.app(), defaultSpFileName).clear().apply();
     }
 
 
