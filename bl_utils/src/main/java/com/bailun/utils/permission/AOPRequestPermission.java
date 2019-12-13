@@ -35,7 +35,7 @@ public class AOPRequestPermission {
     }
 
     private static final String REQUEST_PERMISSION_POINTCUT =
-            "execution(@com.bailun.wangjing.permissionlibrary.annotation.RequestPermission * *(..))";
+            "execution(@com.bailun.utils.permission.RequestPermission * *(..))";
 
     @Pointcut(REQUEST_PERMISSION_POINTCUT + " && @annotation(requestPermission)")
     public void requestPermissionMethod(RequestPermission requestPermission) {
