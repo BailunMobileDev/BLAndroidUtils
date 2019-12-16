@@ -34,3 +34,7 @@ dependencies {
 |2|BLPermissionUtils|权限判断库|
 |3|BLSpUtils|SharedPreferences库|
 |4|BLJsonUtils|解析json的工具类|
+|5|BLBase64Utils|Base64加密|
+|6|BLDispiayUtils|dp,sp,px转换|
+|7|BLMD5Utils|MD5字符串加密|
+|8|BLScreenInfoUtils|屏幕信息|
