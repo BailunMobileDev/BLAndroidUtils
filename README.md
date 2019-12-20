@@ -19,7 +19,7 @@ allprojects {
 **Step 2.** Add the dependency
 ```java
 dependencies {
-	  implementation 'com.github.BailunMobileDev:BLAndroidUtils:v0.0.4'
+	  implementation 'com.github.BailunMobileDev:BLAndroidUtils:v0.1.2'
 }
 ```
 
@@ -38,3 +38,6 @@ dependencies {
 |6|BLDispiayUtils|dp,sp,px转换|
 |7|BLMD5Utils|MD5字符串加密|
 |8|BLScreenInfoUtils|屏幕信息|
+
+### 注意
+- v0.1.3版本为android support库版本
