@@ -40,4 +40,4 @@ dependencies {
 |8|BLScreenInfoUtils|屏幕信息|
 
 ### 注意
-- v0.1.3版本为android support库版本
+- v0.1.4版本为android support库版本
