@@ -1,10 +1,11 @@
 package com.bailun.utils.json;
 
 
+import android.support.annotation.NonNull;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import androidx.annotation.NonNull;
 
 /**
  * create by chl on 2019/12/12

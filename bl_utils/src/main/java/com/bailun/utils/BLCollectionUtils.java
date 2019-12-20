@@ -1,8 +1,9 @@
 package com.bailun.utils;
 
+import android.support.annotation.Nullable;
+
 import java.util.Collection;
 
-import androidx.annotation.Nullable;
 
 /**
  * 集合工具类
