@@ -1,6 +1,6 @@
 package com.bailun.utils;
 
-import android.content.Context;
+import android.util.DisplayMetrics;
 
 /**
  * create by ouyangjianfeng on 2019/12/16
@@ -8,51 +8,44 @@ import android.content.Context;
  */
 public class BLDisPlayUtils {
 
+    private BLDisPlayUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * dp转px
-     *
-     * @param context
-     * @param dipFloat
-     * @return
      */
-    public static int dip2px(Context context, float dipFloat) {
-        float f = context.getResources().getDisplayMetrics().density;
+    public static int dip2px(float dipFloat) {
+        float f = getDisplayMetrics().density;
         return (int) (dipFloat * f + 0.5F);
     }
 
     /**
      * px转dp
-     *
-     * @param context
-     * @param pxFloat
-     * @return
      */
-    public static int px2dip(Context context, float pxFloat) {
-        float f = context.getResources().getDisplayMetrics().density;
+    public static int px2dip(float pxFloat) {
+        float f = getDisplayMetrics().density;
         return (int) (pxFloat / f + 0.5F);
     }
 
     /**
      * sp转px
-     *
-     * @param context
-     * @param spFloat
-     * @return
      */
-    public static int sp2px(Context context, float spFloat) {
-        float f = context.getResources().getDisplayMetrics().scaledDensity;
+    public static int sp2px(float spFloat) {
+        float f = getDisplayMetrics().scaledDensity;
         return (int) (spFloat * f + 0.5F);
     }
 
     /**
      * px转sp
-     *
-     * @param context
-     * @param pxFloat
-     * @return
      */
-    public static int px2sp(Context context, float pxFloat) {
-        float f = context.getResources().getDisplayMetrics().scaledDensity;
+    public static int px2sp(float pxFloat) {
+        float f = getDisplayMetrics().scaledDensity;
         return (int) (pxFloat / f + 0.5F);
+    }
+
+
+    private static DisplayMetrics getDisplayMetrics() {
+        return BLAndroidUtils.app().getResources().getDisplayMetrics();
     }
 }
