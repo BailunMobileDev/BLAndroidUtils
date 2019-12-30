@@ -23,6 +23,20 @@ dependencies {
 }
 ```
 
+
+**使用AOP需要添加的配置**
+
+在项目根目录的build.gradle里依赖AspectJX：
+```dependencies {
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
+    }```
+
+
+在app项目的build.gradle里应用插件
+```apply plugin: 'android-aspectjx' ```
+
+
+
 ### Utils简介
 
 
@@ -45,5 +59,7 @@ dependencies {
 
 - BLFastClickLimit注解既可以使用在成员变量上也可以注解在方法上。建议优先使用注解在变量上，可以根据不同View单独设置时间间隔，但只针对onClick方法与ButterKnife的OnClick注解；
 使用在方法上主要为了针对匿名内部类设置点击事件或其他类型的事件(如：onItemClickListener等)
+
+- 依赖2.8.6版本的Gson会与AspectJX库冲突，运行时会报异常，建议使用2.8.5
 
 
