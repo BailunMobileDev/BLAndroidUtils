@@ -19,7 +19,7 @@ allprojects {
 **Step 2.** Add the dependency
 ```java
 dependencies {
-	  implementation 'com.github.BailunMobileDev:BLAndroidUtils:v0.1.2'
+	  implementation 'com.github.BailunMobileDev:BLAndroidUtils:v0.1.6'
 }
 ```
 
@@ -38,6 +38,12 @@ dependencies {
 |6|BLDispiayUtils|dp,sp,px转换|
 |7|BLMD5Utils|MD5字符串加密|
 |8|BLScreenInfoUtils|屏幕信息|
+|9|BLFastClickLimit|基于AOP限制快速点击|
 
 ### 注意
 - v0.1.4版本为android support库版本
+
+- BLFastClickLimit注解既可以使用在成员变量上也可以注解在方法上。建议优先使用注解在变量上，可以根据不同View单独设置时间间隔，但只针对onClick方法与ButterKnife的OnClick注解；
+使用在方法上主要为了针对匿名内部类设置点击事件或其他类型的事件(如：onItemClickListener等)
+
+
