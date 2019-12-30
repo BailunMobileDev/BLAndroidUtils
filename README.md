@@ -33,7 +33,8 @@ dependencies {
 
 
 在app项目的build.gradle里应用插件
-```apply plugin: 'android-aspectjx' ```
+```apply plugin: 'android-aspectjx' 
+```
 
 
 
