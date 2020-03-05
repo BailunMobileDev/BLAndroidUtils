@@ -175,17 +175,39 @@ public class BLSpUtils {
         getEditor(activity).putString(key, value).apply();
     }
 
+    /**
+     * 保存int对象（忽略结果）
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     */
+    public void putInt(String key, Integer value) {
+        getEditor(BLAndroidUtils.app(), defaultSpFileName).putInt(key, value).apply();
+    }
+
 
     /**
      * 保存int对象（忽略结果）
      *
-     * @param context Context to get SharedPreferences
-     * @param key     The name of the preference to modify.
-     * @param value   The new value for the preference.
+     * @param name  Desired preferences file.
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
      */
-    public void putInt(Context context, String key, Integer value) {
-        getEditor(context, key).putInt(key, value).apply();
+    public void putInt(String name, String key, Integer value) {
+        getEditor(BLAndroidUtils.app(), name).putInt(key, value).apply();
     }
+
+    /**
+     * 保存int对象（忽略结果）
+     *
+     * @param activity Activity to get SharedPreferences
+     * @param key      The name of the preference to modify.
+     * @param value    The new value for the preference.
+     */
+    public void putInt(Activity activity, String key, Integer value) {
+        getEditor(activity).putInt(key, value).apply();
+    }
+
 
     /**
      * 保存Boolean对象（忽略结果）
