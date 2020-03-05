@@ -54,6 +54,7 @@ dependencies {
 |7|BLMD5Utils|MD5字符串加密|
 |8|BLScreenInfoUtils|屏幕信息|
 |9|BLFastClickLimit|基于AOP限制快速点击|
+|10|BLResUtils|简化资源文件的调用|
 
 ### 注意
 - v0.1.4版本为android support库版本
