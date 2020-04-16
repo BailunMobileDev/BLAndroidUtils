@@ -211,37 +211,105 @@ public class BLSpUtils {
 
     /**
      * 保存Boolean对象（忽略结果）
+     * 使用全局的默认文件名
      *
-     * @param context Context to get SharedPreferences
-     * @param key     The name of the preference to modify.
-     * @param value   The new value for the preference.
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
      */
-    public void putBoolean(Context context, String key, boolean value) {
-        getEditor(context, key).putBoolean(key, value).apply();
+    public void putBoolean(String key, boolean value) {
+        getEditor(BLAndroidUtils.app(), defaultSpFileName).putBoolean(key, value).apply();
+    }
+
+    /**
+     * 保存Boolean对象（忽略结果）
+     * 使用全局的自定义文件名名称
+     *
+     * @param name  Desired preferences file.
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     */
+    public void putBoolean(String name, String key, boolean value) {
+        getEditor(BLAndroidUtils.app(), name).putBoolean(key, value).apply();
+    }
+
+    /**
+     * 保存Boolean对象（忽略结果）
+     * 使用activity的文件名
+     *
+     * @param activity Context to get SharedPreferences
+     * @param key      The name of the preference to modify.
+     * @param value    The new value for the preference.
+     */
+    public void putBoolean(Activity activity, String key, boolean value) {
+        getEditor(activity).putBoolean(key, value).apply();
+    }
+
+
+    /**
+     * 保存Float对象（忽略结果）
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     */
+    public void putFloat(String key, float value) {
+        getEditor(BLAndroidUtils.app(), defaultSpFileName).putFloat(key, value).apply();
     }
 
     /**
      * 保存Float对象（忽略结果）
      *
-     * @param context Context to get SharedPreferences
-     * @param key     The name of the preference to modify.
-     * @param value   The new value for the preference.
+     * @param name  Desired preferences file.
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
      */
-    public void putFloat(Context context, String key, float value) {
-        getEditor(context, key).putFloat(key, value).apply();
+    public void putFloat(String name, String key, float value) {
+        getEditor(BLAndroidUtils.app(), name).putFloat(key, value).apply();
+    }
+
+    /**
+     * 保存Float对象（忽略结果）
+     *
+     * @param activity Activity to get SharedPreferences
+     * @param key      The name of the preference to modify.
+     * @param value    The new value for the preference.
+     */
+    public void putFloat(Activity activity, String key, float value) {
+        getEditor(activity).putFloat(key, value).apply();
+    }
+
+
+    /**
+     * 保存Long对象（忽略结果）
+     *
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     */
+    public void putLong(String key, long value) {
+        getEditor(BLAndroidUtils.app(), defaultSpFileName).putLong(key, value).apply();
+    }
+
+
+    /**
+     * 保存Long对象（忽略结果）
+     *
+     * @param name  Desired preferences file.
+     * @param key   The name of the preference to modify.
+     * @param value The new value for the preference.
+     */
+    public void putLong(String name, String key, long value) {
+        getEditor(BLAndroidUtils.app(), name).putLong(key, value).apply();
     }
 
     /**
      * 保存Long对象（忽略结果）
      *
-     * @param context Context to get SharedPreferences
-     * @param key     The name of the preference to modify.
-     * @param value   The new value for the preference.
+     * @param activity Activity to get SharedPreferences
+     * @param key      The name of the preference to modify.
+     * @param value    The new value for the preference.
      */
-    public void putLong(Context context, String key, long value) {
-        getEditor(context, key).putLong(key, value).apply();
+    public void putLong(Activity activity, String key, long value) {
+        getEditor(activity).putLong(key, value).apply();
     }
-
 
     /**
      * 获取String对象
@@ -264,6 +332,17 @@ public class BLSpUtils {
      */
     public String getString(String spFileName, String key) {
         return getString(spFileName, key, defaultValueBuilder.defaultStringValue);
+    }
+
+    /**
+     * 获取String对象
+     *
+     * @param key          The name of the preference to modify.
+     * @param defaultValue 默认值
+     * @return String 对象
+     */
+    public String getDefFileString(String key, String defaultValue) {
+        return getString(defaultSpFileName, key, defaultValue);
     }
 
     /**
@@ -329,6 +408,17 @@ public class BLSpUtils {
     /**
      * 获取Int对象
      *
+     * @param key          The name of the preference to modify.
+     * @param defaultValue 默认值
+     * @return Int 对象
+     */
+    public int getDefFileInt(String key, int defaultValue) {
+        return getInt(defaultSpFileName, key, defaultValue);
+    }
+
+    /**
+     * 获取Int对象
+     *
      * @param key The name of the preference to modify.
      * @return Int 对象
      */
@@ -380,6 +470,17 @@ public class BLSpUtils {
      */
     public boolean getBoolean(String spFileName, String key) {
         return getBoolean(spFileName, key, defaultValueBuilder.defaultBooleanValue);
+    }
+
+    /**
+     * 获取Boolean对象
+     *
+     * @param key          The name of the preference to modify.
+     * @param defaultValue 默认值
+     * @return Boolean 对象
+     */
+    public boolean getDefFileBoolean(String key, boolean defaultValue) {
+        return getBoolean(defaultSpFileName, key, defaultValue);
     }
 
     /**
@@ -441,6 +542,17 @@ public class BLSpUtils {
     /**
      * 获取Long对象
      *
+     * @param key          The name of the preference to modify.
+     * @param defaultValue 默认值
+     * @return long 对象
+     */
+    public long getDefFileLong(String key, long defaultValue) {
+        return getLong(defaultSpFileName, key, defaultValue);
+    }
+
+    /**
+     * 获取Long对象
+     *
      * @param key The name of the preference to modify.
      * @return Long 对象
      */
@@ -492,6 +604,17 @@ public class BLSpUtils {
      */
     public float getFloat(String spFileName, String key) {
         return getFloat(spFileName, key, defaultValueBuilder.defaultFloatValue);
+    }
+
+    /**
+     * 获取Float对象
+     *
+     * @param key          The name of the preference to modify.
+     * @param defaultValue 默认值
+     * @return Float 对象
+     */
+    public float getDefFileFloat(String key, float defaultValue) {
+        return getFloat(defaultSpFileName, key, defaultValue);
     }
 
     /**
